@@ -31,8 +31,15 @@ class CakeService {
 
     public function create(array $data)
     {
-
         $cake = new Cake;
+        $cake->name = $data['name'];
+        $cake->save();
+        return $cake;
+    }
+
+    public function update($id, array $data)
+    {
+        $cake = Cake::where('id', $id)->firstOrFail();
         $cake->name = $data['name'];
         $cake->save();
         return $cake;
