@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CakeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+// Cake
+Route::get('cake/list', [CakeController::class, 'list']);
+Route::get('cake/{id}', [CakeController::class, 'get']);
+Route::delete('cake/{id}', [CakeController::class, 'delete']);
+Route::post('cake', [CakeController::class, 'create']);
