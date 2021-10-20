@@ -1,13 +1,14 @@
 # Setup CakeStore - Api
 
+### Postman com os endpoints
+
+https://documenter.getpostman.com/view/2066044/UV5ZAwKV
+
 ### Pré-requisitos:
 Para trabalhar nesse projeto você ira precisar instalar:
      
 *[ Docker ](https://www.docker.com/get-started)			
 *[ Docker Compose ](https://docs.docker.com/compose/install/)           
-
-Seguir os tutoriais de acordo com o repositorio:
-*[ Infra ](https://bitbucket.org/okpago/deposite-docker/src/master/)
 
 ### Preparando o ambiente Docker:
 
