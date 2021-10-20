@@ -23,7 +23,7 @@ class CakeStockTransformer extends TransformerAbstract
             'id'         => $entity->id,
             'cake_id'    => $entity->cake_id,
             'weight'     => $entity->weight,
-            'price'      => $entity->price,
+            'price'      => 'R$ ' . $entity->price / 100,
             'status'     => $entity->status,
             'created_at' => $entity->created_at->format('Y-m-d')
         ];
