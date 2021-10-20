@@ -15,7 +15,7 @@ Para trabalhar nesse projeto você ira precisar instalar:
 
 *[ Mysql ](https://github.com/vmatteus/docker-mysql)
 
-Descobrindo o ip do docker: docker network inspect genial | grep Gateway
+Descobrindo o ip do docker: docker network inspect inside | grep Gateway
 
 ### Preparando o ambiente Docker:
 
