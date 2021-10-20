@@ -36,7 +36,7 @@ class CakeStockService {
         $stock->status = $data['status'];
         $stock->save();
 
-        if ($stock->status == 'available' && $stock->wasChanged()) {
+        if ($stock->status == 'available') {
             event(new \App\Events\CakeAvailableAlert($stock->cake));
         }
         
