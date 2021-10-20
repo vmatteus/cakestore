@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
-class CakeStockCreateRequest extends Base
+use Illuminate\Validation\Rule;
+
+class CakeInterestCreateRequest extends Base
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,12 +23,13 @@ class CakeStockCreateRequest extends Base
      */
     public function rules()
     {
-
         $rules = [
             'cake_id' => ['required', 'exists:cakes,id'],
-            'weight'  => ['required', 'integer'],
-            'price'   => ['required', 'integer'],
-            'status'  => ['required', 'in:available,sold,pending']
+            'email'   => ['required', 'string', 'email', Rule::unique('cake_interests')->where(function($query) {
+                $query->where('status', '=', 'pending')
+                      ->where('cake_id', '=', $this->request->get('cake_id'));
+            })],
+            'status'  => ['required', 'in:pending']
         ];
 
         return $rules;

@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-use App;
-
 use App\Models\CakeStock;
 
 class CakeStockService {
@@ -24,31 +22,42 @@ class CakeStockService {
 
     public function delete($id) 
     {
-        $cake = CakeStock::where('id', $id)->firstOrFail();
-        $cake->delete();
+        $stock = CakeStock::where('id', $id)->firstOrFail();
+        $stock->delete();
         return true;
     }
 
     public function create(array $data)
     {
-        $cake = new CakeStock;
-        $cake->cake_id = $data['cake_id']; 
-        $cake->weight = $data['weight'];
-        $cake->price = $data['price'];
-        $cake->status = $data['status'];
-        $cake->save();
-        return $cake;
+        $stock = new CakeStock;
+        $stock->cake_id = $data['cake_id']; 
+        $stock->weight = $data['weight'];
+        $stock->price = $data['price'];
+        $stock->status = $data['status'];
+        $stock->save();
+
+        if ($stock->status == 'available' && $stock->wasChanged()) {
+            event(new \App\Events\CakeAvailableAlert($stock->cake));
+        }
+        
+
+        return $stock;
     }
 
     public function update($id, array $data)
     {
-        $cake = CakeStock::where('id', $id)->firstOrFail();
-        $cake->cake_id = $data['cake_id']; 
-        $cake->weight = $data['weight'];
-        $cake->price = $data['price'];
-        $cake->status = $data['status'];
-        $cake->save();
-        return $cake;
+        $stock = CakeStock::where('id', $id)->firstOrFail();
+        $stock->cake_id = $data['cake_id']; 
+        $stock->weight = $data['weight'];
+        $stock->price = $data['price'];
+        $stock->status = $data['status'];
+        $stock->save();
+
+        if ($stock->status == 'available' && $stock->wasChanged()) {
+            event(new \App\Events\CakeAvailableAlert($stock->cake));
+        }
+
+        return $stock;
     }
     
 }

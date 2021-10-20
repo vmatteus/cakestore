@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App;
-use Illuminate\Http\Request;
 use App\Http\Requests\CakeListRequest;
-use App\Http\Requests\CakeGetRequest;
 use App\Http\Requests\CakeCreateRequest;
 use App\Http\Resources\CakeResource;
 use App\Services\CakeService;
@@ -60,7 +58,7 @@ class CakeController extends Controller
         $cake = $this->service->update($id, $data);
         return response()->json([
             'msg' => "Bolo atualizado com sucesso!",
-            'data' => App::make(CakeTransformer::class)->transform($cake)
+            'data' => \App::make(CakeTransformer::class)->transform($cake)
         ]);
     }
     

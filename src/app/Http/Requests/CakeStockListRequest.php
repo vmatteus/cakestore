@@ -2,11 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Support\Facades\Config;
-use Illuminate\Validation\Rule;
-
-
-class CakeGetRequest extends Base
+class CakeStockListRequest extends Base
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +23,8 @@ class CakeGetRequest extends Base
     {
 
         $rules = [
-            'id'       => ['required', 'integer'],
+            'page'       => ['required', 'integer'],
+            'limit'      => ['nullable', 'integer']
         ];
 
         return $rules;

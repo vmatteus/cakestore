@@ -23,4 +23,10 @@ class Cake extends Model
         'updated_at',
     ];
     
+    public function getCakeInterests(){
+        $data = $this->hasMany(CakeInterest::class);
+        $data->where('status', 'pending');
+        return $data;
+    }
+
 }

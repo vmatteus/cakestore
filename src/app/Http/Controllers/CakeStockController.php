@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App;
-use Illuminate\Http\Request;
-use App\Http\Requests\CakeListRequest;
-use App\Http\Requests\CakeGetRequest;
+use App\Http\Requests\CakeStockListRequest;
 use App\Http\Requests\CakeStockCreateRequest;
 use App\Http\Resources\CakeStockResource;
 use App\Services\CakeStockService;
@@ -15,7 +13,7 @@ class CakeStockController extends Controller
 {
 
     /**
-     * @var \App\Services\CakeService $service
+     * @var \App\Services\CakeStockService $service
      */
     private $service;
 
@@ -24,7 +22,7 @@ class CakeStockController extends Controller
         $this->service = $service;
     }
 
-    public function list(CakeListRequest $request) 
+    public function list(CakeStockListRequest $request) 
     {
         $data = $request->validated();
         $collection = $this->service->list($data);

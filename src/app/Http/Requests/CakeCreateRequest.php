@@ -2,10 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Support\Facades\Config;
-use Illuminate\Validation\Rule;
-
-
 class CakeCreateRequest extends Base
 {
     /**

@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-use App;
-
 use App\Models\Cake;
 
 class CakeService {
