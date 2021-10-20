@@ -8,7 +8,12 @@ https://documenter.getpostman.com/view/2066044/UV5ZAwKV
 Para trabalhar nesse projeto você ira precisar instalar:
      
 *[ Docker ](https://www.docker.com/get-started)			
+
 *[ Docker Compose ](https://docs.docker.com/compose/install/)           
+
+### Instalar o Mysql
+
+*[ Mysql ](https://github.com/vmatteus/docker-mysql)
 
 ### Preparando o ambiente Docker:
 
