@@ -58,7 +58,7 @@ class CakeController extends Controller
         $cake = $this->service->update($id, $data);
         return response()->json([
             'msg' => "Bolo atualizado com sucesso!",
-            'data' => \App::make(CakeTransformer::class)->transform($cake)
+            'data' => App::make(CakeTransformer::class)->transform($cake)
         ]);
     }
     

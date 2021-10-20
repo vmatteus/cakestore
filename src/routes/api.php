@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CakeController;
 use App\Http\Controllers\CakeStockController;
+use App\Http\Controllers\CakeInterestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,6 @@ Route::get('cakestock/{id}', [CakeStockController::class, 'get']);
 Route::delete('cakestock/{id}', [CakeStockController::class, 'delete']);
 Route::post('cakestock', [CakeStockController::class, 'create']);
 Route::put('cakestock/{id}', [CakeStockController::class, 'update']);
+
+// CakeInterest
+Route::post('cakeinterest', [CakeInterestController::class, 'create']);
