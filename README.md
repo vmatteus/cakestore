@@ -12,6 +12,10 @@ Para trabalhar nesse projeto você ira precisar instalar:
 
 ### Preparando o ambiente Docker:
 
+    Subindo ambiente
+        sudo docker-compose build
+        sudo docker-compose up -d
+
     Entrando no ambiente docker:
         sudo docker exec -it cakestore-api bash // ou nome do repositorio escolhido
 
